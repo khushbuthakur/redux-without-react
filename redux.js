@@ -33,6 +33,10 @@ const myReducer = (state = initialState, action) => {
 
 const store = createStore(myReducer);
 
+store.subscribe(() => {
+  console.log("state changed : ", store.getState());
+});
+
 store.dispatch({ type: "MULTIPLY" });
 
-console.log(store.getState(), "multiplication of numbers");
+// console.log(store.getState(), "multiplication of numbers");

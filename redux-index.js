@@ -1,4 +1,4 @@
-// run command node redux-index in command prompt to see result
+// run command `node redux-index` in command prompt to see result
 
 // STEP 1. import redux package and import createStore from it for creating store
 const { createStore } = require("redux");
@@ -37,6 +37,11 @@ an object describing what happened. To specify how actions transform the state, 
 
 const store = createStore(myReducer);
 
+// STEP 6 : subscribe to store, so whenever state in store changes, this call back function will be called
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
 //  STEP 5. pass decisions to store i.e. increase or decrease number, we do it by dispatching actions to reducer
 // ACTIONS - commands
 /* Actions are payloads of information that send data from your application to your store. You send them to the store using store.dispatch() */
@@ -45,4 +50,4 @@ store.dispatch({ type: "INCREMENT", payload: 2.4 });
 
 store.dispatch({ type: "DECREMENT", payload: 0.9 });
 
-console.log(store.getState());
+// console.log(store.getState());
